@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
     ['@nuxtjs/i18n', {
-      vueI18n: './i18n.ts'
+      vueI18n: './i18n.config.ts'
     }],
   ],
   runtimeConfig: {

@@ -4,7 +4,7 @@ const pagesStore = usePagesStore()
 await pagesStore.fetchPages()
 </script>
 <template>
-  <RouterView />
+  <NuxtPage />
 </template>
 <style>
 .page-enter-active,

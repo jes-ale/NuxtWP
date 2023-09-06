@@ -1,12 +1,18 @@
 <script setup lang="ts">
-import { usePagesStore } from '~/store/page'
+import { WordPressPage } from '~/types/wpPage'
+import "@wordpress/block-library/build-style/common.css"
+import "@wordpress/block-library/build-style/style.css"
+import "@wordpress/block-library/build-style/theme.css"
 definePageMeta({
   layout: false,
 })
-const pagesStore = usePagesStore()
 const formattedContent = ref()
 const route = useRoute()
-formattedContent.value = pagesStore.getPageById(Number(route.params.id))?.content.rendered
+const runtimeConfig = useRuntimeConfig()
+const baseURL = runtimeConfig.public.apiUrl
+const { data: pageResponse } = await useFetch<WordPressPage>(`${baseURL}/wp-json/wp/v2/pages/${route.params.id}`)
+if (pageResponse.value !== null)
+  formattedContent.value = pageResponse.value.content.rendered
 </script>
 
 <template>
