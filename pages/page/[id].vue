@@ -7,8 +7,6 @@ const pagesStore = usePagesStore()
 const formattedContent = ref()
 const route = useRoute()
 formattedContent.value = pagesStore.getPageById(Number(route.params.id))?.content.rendered
-console.warn(route.params.id)
-console.warn(pagesStore.pages)
 </script>
 
 <template>
