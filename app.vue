@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { usePagesStore } from '~/store/page'
+const pagesStore = usePagesStore()
+await pagesStore.fetchPages()
+</script>
 <template>
   <RouterView />
 </template>

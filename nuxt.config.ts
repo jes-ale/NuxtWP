@@ -8,11 +8,8 @@ export default defineNuxtConfig({
     }],
   ],
   runtimeConfig: {
-    apiSecret: '',
-    app: {
+    public: {
       apiUrl: process.env.NUXT_API_URL,
-      public: {
-      }
     },
     pageTransition: { name: 'page', mode: 'out-in' }
   },

@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { usePagesStore } from '~/store/page'
+definePageMeta({
+  layout: false,
+})
+const pagesStore = usePagesStore()
+const formattedContent = ref()
+const route = useRoute()
+formattedContent.value = pagesStore.getPageById(Number(route.params.id))?.content.rendered
+console.warn(route.params.id)
+console.warn(pagesStore.pages)
+</script>
+
 <template>
   <div>
     <NuxtLayout name="default">
@@ -5,25 +18,3 @@
     </NuxtLayout>
   </div>
 </template>
-
-<script setup lang="ts">
-import { WordPressPage } from '~/types/wpPage'
-definePageMeta({
-  layout: false,
-})
-const runtimeConfig = useRuntimeConfig()
-const baseURL = runtimeConfig.public.apiUrl
-const route = useRoute()
-const formattedContent = ref('')
-const { data: pageResponse } = await useFetch<WordPressPage>(`${baseURL}/wp-json/wp/v2/pages/${route.params.id}`)
-const pageData = pageResponse.value
-const { data: stylesResponse } = await useFetch<any>(`${baseURL}/wp-includes/css/dist/block-library/style.min.css`)
-const stylesData = stylesResponse.value
-if (pageData !== null && stylesData !== null)
-  formattedContent.value = `<style>${stylesData}</style>${pageData.content.rendered}`
-</script>
-
-<style>
-/* You can add Tailwind CSS classes here if needed */
-</style>
-

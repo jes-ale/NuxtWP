@@ -9,7 +9,7 @@ const iconsrc = ref('material-symbols:person')
         </div>
         <div class="w-full lg:w-1/3 h-full flex flex-col items-center py-4">
             <div class="font-bold border-b-2 border-b-white mb-2">{{ $t('links') }}</div>
-            <Menu name="footer_1" />
+            <!--  TODO: ADD FOOTER MENU  -->
         </div>
         <div class="w-full lg:w-1/3 h-full flex flex-col items-center py-4">
             <div class="font-bold border-b-2 border-b-white mb-2"> {{ $t('contact') }} </div>

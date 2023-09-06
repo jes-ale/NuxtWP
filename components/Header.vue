@@ -17,7 +17,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
                         leave-active-class="transition duration-75 ease-out"
                         leave-from-class="transform scale-100 opacity-100" leave-to-class="transform scale-95 opacity-0">
                         <DisclosurePanel class="px-4 py-2">
-                            <Menu name="header_1" />
+                            <HeaderMenu />
                         </DisclosurePanel>
                     </transition>
                 </Disclosure>
@@ -34,7 +34,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
                             </a>
                         </div>
                         <div class="flex flex-row w-full justify-between pb-2">
-                            <Menu name="header_1" />
+                            <HeaderMenu />
                         </div>
                     </div>
                 </div>
